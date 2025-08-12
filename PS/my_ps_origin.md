@@ -27,14 +27,51 @@
 
 
 ## 正文
+
+**第三版**
+
+修改思路：
+- 加入更为丰富的递进思考的过程，比如最开始只是对如何实现感兴趣，后来开始考虑如何能实现地更好
+- 智能是什么（只是软硬件的结合吗？还是有更深层次的科学哲学内涵）
+
+
+第一部分：
+“是什么让设备产生了智能？”这个问题在我小时候阅读阿斯莫夫的机器人小说时突然出现在我的脑海中，自此我开始思考各种智能设备的工作原理。
+有一次家里的遥控车坏了，我拆开来，看到了复杂的PCB电路板和电机，那些精密复杂的构造使我着迷。我迫切地想弄懂PCB上各个器件是如何工作的，又是如何驱动电机旋转的，(但中学的知识深度不足以支撑我的思考)。于是中学毕业后，满怀对电子工程的兴趣和对交叉学科的热情，我选择了哈尔滨工业大学（深圳）的自动化专业，一个具有复合人才培养体系和深厚工程底蕴的专业
+
+
+第二部分：
+各种电子设备的软硬件和控制算法的原理是什么？这是我本科课程学习的主线内容。
+在学习完数电模电的内容后，我通过自行设计并焊接的DC-DC buck-boost电路，了解了基本的硬件设计流程和原理。在学习控制理论的过程中我借助线性代数等数学工具进行分析和计算，还编写matlab仿真程序对控制系统的频率特性进行分析，提升了自己的数学和编程能力。在有了以上的基础后，我在ROS机器人平台上部署了一些机器视觉识别算法，实现了机器人对颜色的识别和目标的追踪。自己用pytorch完成了U-net网络的实现并实现了90%以上的目标识别准确度。
+
+比知道智能设备工作原理更让我着迷的是自己赋予设备智能的过程。于是在课程学习之外，我还积极参与各种项目和比赛。
+
+在大一的时候我和几个同学一起参与了一个智能自行车码表的项目。
+当时我们缺少实际开发的经验，于是对照官方使用文档开始自学。我们分析示例工程的的驱动程序实现，我主导了GPS模块、蓝牙模块和墨水屏的驱动程序移植。最终我们完成了程序设计和硬件设计，实现了速度显示、摔倒检测、GPS定位、10h续航等功能。
+在项目制作的过程中，我熟悉了从软件到硬件的基本开发流程，也在PCB设计、程序编写中更加坚定了自己对电子工程的兴趣和热情，开始在课外参与更多的项目，自学了PCB设计，并阅读了很多开源项目代码。更重要的是，当发现其它成员编写的模块功能函数复杂且缺少调用接口时，我便意识到自己并不只满足于功能的实现，而是想要完成一个设计合理、功能完善、性能优异的智能设备产品。
+
+于是到了大三，我参与了一个物流搬运机器人比赛。此时我已经掌握了硬件设计和软件开发的基本方法，作为机器人开发的主要负责人，我在开发的过程中不满足于基本功能的实现，而是开始注重规范性与可拓展性，真正像做一个产品一样去设计这个机器人。
+在硬件方面，我设计了一块10\*10cm的STM32的拓展板，集成了降压模块、串口模块、供电接口、电机和舵机接口、无线继电器开关和无线调试器。在减小拓展板尺寸的同时满足了功率负载要求和信号完整性要求。
+在软件方面，我还将yaw轴陀螺仪与电机编码器结合，开发了一套基于陀螺仪角度反馈的位置-速度闭环的底盘控制算法，实现了cm级别的移动精度和流畅的运动启停。还配合树莓派openCV库进行目标与颜色识别，采用PID控制机械臂实现了mm级别的物料放置精度。
+我还设计了模块化的软件架构，针对各种异常情况设计了应对机制，为各个模块和函数编写了详细的使用说明和文档，引入git进行代码版本的管理。这样不管是后续的继续开发还是进行功能的调整，都能快速而便利地进行。
+在最终的比赛中，我们分工协作，凭借稳定的控制效果和充分的准备取得了全国第五的成绩。
+在这个项目中，我不光将自己所学的知识应用到了实际中，也在产品开发、团队协作、项目管理等方面有了更深入的理解。认识到一个成功的智能设备，绝对不是软件和硬件的简单堆叠，而是软件算法、硬件设计与系统工程思维三者的有机统一，这种系统化的工程思维成为了我日后学习和思考的核心方法论。
+
+
+第三部分：
+随着比赛的结束，我未来的目标愿景也变得更为清晰：“让设备变得更为智能”。在完成各种项目的过程中，我接触到了从硬件设计到软件开发的整个流程，了解了如今各种智能设备的复杂程度，也对自身的工程技术能力进行了更为深入的思考。在调试机器人的时候我发现，传统的PID控制器面对机械结构的非线性摩擦和负载的突变，难以达到稳定的控制效果，想要在实际工程和应用中达到快速而稳定的控制效果，需要学习诸如MPC等更为复杂的控制方法。同样的，在PCB设计中，我虽然能满足基本的功率和信号传输的要求，但如果涉及到高速信号完整性、信号隔离、功耗管理等更为复杂的要求，我仍然缺乏系统的学习。我希望前往一个更为国际化的学术环境中去，在多元观点的碰撞中，获得更广阔的视野。而香港（新加坡）作为东西方技术与文化的交汇点，完美契合了我的需求。
+
+
+
+
 **第二版**
 第一部分：
 我对电子工程的兴趣源自小时候阅读阿西莫夫的机器人小说，一个名为丹尼尔的具有智能和情感的机器人点燃了我探究各种智能设备原理的热情。
 到了中学，我学习到了电机驱动的简单原理。回到家拆开了自己的玩具遥控车，看到了复杂的PCB电路板和各种芯片，那些精密复杂的构造使我着迷。从那时起，我便下定决心去探究各种电子设备从设计到应用的原理。
-满怀对电子工程的兴趣和对交叉学科的热情，我并不满足于仅仅深入某一个方向学习，而是想要获得一个更为广阔的视野。受到其复合人才培养体系与深厚工程底蕴的吸引，我选择了哈尔滨工业大学（深圳）的自动化专业。
+当进入大学后，满怀对电子工程的兴趣和对交叉学科的热情，我并不满足于仅仅深入某一个方向学习，而是想要获得一个更为广阔的视野。受到其复合人才培养体系与深厚工程底蕴的吸引，我选择了哈尔滨工业大学（深圳）的自动化专业。
 
 
-第二部分：
+第二部分：(课程内容加入更多细节，比如着重分析某一个课程)
 本科阶段的课程为我构建了一个从理论到应用的完整知识体系。我的课程学习也是一个不断将理论付诸实践的过程。
 我在学习控制理论的过程中使用线性代数等数学工具进行分析和计算，在matlab中编写仿真程序分析不同控制系统的频率特性。
 学完数电模电后，我不满足于理论知识，而是自己设计了DC-DC转换电路并进行PCB的焊接和调试。
@@ -47,7 +84,7 @@
 在大一的时候我和几个同学一起参与了一个智能自行车码表的项目。
 当时我们缺少实际开发的经验，于是对照官方使用文档开始自学。我们分析实例工程的的驱动程序实现，我主导了GPS模块、蓝牙模块和墨水屏的驱动程序移植。为了降低了整个码表的功耗，我重新设计了UI界面的显示逻辑。我还提议在各个功能模块中设计好API接口，方便在工程中直接调用。
 最终我们完成了程序设计和硬件设计，实现了速度显示、摔倒检测、GPS定位、10h续航等功能。
-在完成这个项目后，我熟悉了从软件到硬件的基本开发流程，也在PCB设计、程序编写中更加坚定了自己对电子工程的兴趣和热情，开始在课外参与更多的项目，自学了PCB设计，并阅读了很多开源项目代码。
+在完成这个项目后，我熟悉了从软件到硬件的基本开发流程，也在PCB设计、程序编写中更加坚定了自己对电子工程的兴趣和热情，开始在课外参与更多的项目，自学了PCB设计，并阅读了很多开源项目代码。（初步觉得，不满足于仅仅的实现，还想要做好，做完美）
 
 到了大三，我参与了一个物流搬运机器人比赛。此时我已经掌握了硬件设计和软件开发的基本方法，作为机器人开发的主要负责人，我在开发的过程中不满足于基本功能的实现，而是开始注重规范性与可拓展性，并满足各种性能指标要求。
 在硬件方面，我设计了一块10\*10cm的STM32的拓展板，集成了降压模块、串口模块、供电接口、电机和舵机接口、无线继电器开关和无线调试器。在减小拓展板尺寸的同时满足了功率负载要求和信号完整性要求。
@@ -110,7 +147,9 @@ Looking forward, I aim to pursue a career in embedded systems and intelligent ro
 
 
 With a strong foundation in both hardware and software, hands-on experience in building complex systems, and a clear vision for my future, I am confident in my readiness to contribute to and excel in your program.
-## AI英文初稿
+
+
+## 第一版英文AI稿
 My initial interest in technology was sparked in childhood by reading science fiction. In Isaac Asimov's robot series, I was deeply captivated by a humanoid robot named Daneel, who possessed a "positronic brain" capable of simulating human feelings and thoughts, coupled with exceptional memory and processing power. This depiction left a profound impression on me and ignited my curiosity about the feasibility of realizing such intelligent humanoid robots. In middle school, as I delved deeper into the natural sciences, my interest moved beyond fictional concepts towards exploring and understanding the real-world objects around me. From simple television remotes and electric kettles to toy drones capable of controlling flight attitude and position, I frequently opened their casings. Inside, I saw complex PCB boards populated with various components and chips. The intricate design of these devices, especially the integrated circuits, deeply fascinated me and led me to constantly ponder how they achieved their complex functions, particularly how software and hardware worked together.
 Arriving at university, I chose to major in Automation Engineering to gain a broader and more comprehensive perspective in the field of electronics. This program effectively integrates traditional electronics, control theory, and AI technologies through a rich and varied curriculum. While studying control theory, I gained proficiency in using mathematical tools like linear algebra for analysis and calculation. Parallel to learning digital and analog electronics, I acquired practical experience through the hands-on design and analysis of actual DC-DC circuits. In courses such as Digital Image Processing and Pattern Recognition, I implemented learned theories and algorithms through programming in ROS and Linux environments. These diverse undergraduate courses provided me with a solid foundation in mathematics, circuits, programming, and control systems.
 Not content with merely theoretical learning, I actively engaged in hands-on projects during my spare time. In my first year, I participated in completing a smart bicycle computer project. This was my first exposure to the full product development process. Having no prior concept of how to develop a product from scratch, our team members first sought design ideas and tutorials from open-source communities and online forums. After thorough discussion, we preliminarily determined several potential solutions to be reviewed by our advisor. Even after the solution was decided, we initially felt unsure how to proceed with the actual development. Consequently, we collaboratively divided the project into several functional modules such as display, GPS positioning, and gyroscope attitude estimation, with each member undertaking self-directed learning for one or two parts. For the hardware, we learned PCB schematic design and independently completed the component soldering and circuit board assembly. On the software side, we read official development documentation to set up the esp-idf development environment, studied how to implement functions like Bluetooth from example projects, and adapted them for our needs. After completing the individual module functionalities, I took the initiative to propose writing some API interfaces and usage examples to make calling these functional modules more convenient for the team.
